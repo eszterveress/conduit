@@ -9,14 +9,14 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "23221ef7d7fcaaba",
-      "reportUrl" : "https://eszterveress.github.io/conduit/18//#testresult/23221ef7d7fcaaba",
+      "uid" : "4ea0827efcd278a0",
+      "reportUrl" : "https://eszterveress.github.io/conduit/19//#testresult/4ea0827efcd278a0",
       "status" : "broken",
       "statusDetails" : "FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'",
       "time" : {
-        "start" : 1628857246636,
-        "stop" : 1628857261948,
-        "duration" : 15312
+        "start" : 1628858015949,
+        "stop" : 1628858028552,
+        "duration" : 12603
       }
     } ]
   }
