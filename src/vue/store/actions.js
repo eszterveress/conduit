@@ -19,7 +19,7 @@ export default {
     return new Promise((resolve, reject) => {
       if (getCookie("drash_sess") && getCookie("drash_sess") != "null") {
         axios
-          .post("/users/login", {
+          .post("/api/users/login", {
             action: "check_if_user_is_authenticated",
             token: getCookie("drash_sess"),
           })
@@ -49,7 +49,7 @@ export default {
     article.author_id = context.getters.user.id;
     return new Promise((resolve) => {
       axios
-        .post("/articles", {
+        .post("/api/articles", {
           article,
         })
         .then((response) => {
@@ -65,7 +65,7 @@ export default {
     console.log(`Handling action: createArticleComment (${params.slug})`);
     return new Promise((resolve, reject) => {
       axios
-        .post(`/articles/${params.slug}/comments`, {
+        .post(`/api/articles/${params.slug}/comments`, {
           comment: params.comment,
         })
         .then(async (response) => {
@@ -93,8 +93,9 @@ export default {
     const slug = data.article_slug;
     return new Promise((resolve) => {
       axios
-        .delete("/articles/" + slug)
+        .delete("/api/articles/" + slug)
         .then((response) => {
+          console.log(response)
           if (response.data.success === true) {
             let articles = context.getters.articles;
             articles.forEach((article, i) => {
@@ -102,7 +103,9 @@ export default {
                 articles.splice(i, 1);
               }
             });
-            context.dispatch("setArticles", articles);
+            console.log(articles)
+            context.dispatch("fetchArticles");
+            context.dispatch("fetchTags")
             context.dispatch("unsetArticle", {});
             resolve(true);
           } else {
@@ -110,6 +113,8 @@ export default {
           }
         })
         .catch((err) => {
+          console.log(err)
+          console.log(err.response)
           resolve(err.response);
         });
     });
@@ -130,7 +135,7 @@ export default {
     console.log(slug, commentId);
     return new Promise((resolve) => {
       axios
-        .delete(`/articles/comment/${commentId}`)
+        .delete(`/api/articles/comment/${commentId}`)
         .then(
           ((response) => {
             let comments = [];
@@ -154,7 +159,7 @@ export default {
     console.log("Handling action: fetchArticle");
     return new Promise((resolve) => {
       axios
-        .get(`/articles/${slug}`, {
+        .get(`/api/articles/${slug}`, {
           params: {
             user_id: context.getters.user.id,
           },
@@ -174,7 +179,7 @@ export default {
     console.log("Handling action: fetchArticleComments");
     return new Promise((resolve) => {
       axios
-        .get(`/articles/${slug}/comments`)
+        .get(`/api/articles/${slug}/comments`)
         .then((response) => {
           commit("setComments", response.data.data);
           resolve(response);
@@ -189,18 +194,19 @@ export default {
     return new Promise((resolve) => {
       console.log(params);
       axios
-        .get("/articles", {
+        .get("/api/articles", {
           params: {
-            author: params.author,
-            favorited_by: params.favorited,
-            offset: params.filters,
-            tag: params.tag,
+            author: params.filters.author,
+            favorited_by: params.filters.favorited,
+            offset: params.offset,
+            tag: params.filters.tag,
             user_id: context.getters.user.id,
           },
         })
         .then((response) => {
           context.dispatch("setArticles", response.data.articles);
           console.log(response.data.articles);
+          context.commit("setArticlesCount", response.data.articles_count)
           resolve(response);
         })
         .catch((error) => {
@@ -213,12 +219,17 @@ export default {
     console.log("Handling action: fetchProfile");
     return new Promise((resolve) => {
       axios
-        .get(`/profiles/${params.username}`)
+        .get(`/api/profiles/${params.username}`, {
+          params: {
+            user_id: context.getters.user.id,
+          }
+        })
         .then((response) => {
           console.log("Profile fetched successfully. Setting profile.");
+          console.log(response)
           context.dispatch("setProfile", response.data.profile);
         })
-        .catch((response) => {
+        .catch((error) => {
           console.log("Unsetting profile.");
           console.log(error.response);
           context.dispatch("unsetProfile");
@@ -229,7 +240,7 @@ export default {
   fetchTags({ commit }) {
     return new Promise((resolve) => {
       axios
-        .get("/tags")
+        .get("/api/tags")
         .then(({ data }) => {
           console.log("fetch tags complete");
           commit("setTags", data);
@@ -245,7 +256,7 @@ export default {
     console.log("Handling action: logIn");
     return new Promise((resolve) => {
       axios
-        .post("/users/login", {
+        .post("/api/users/login", {
           user: credentials,
         })
         .then((response) => {
@@ -268,7 +279,7 @@ export default {
   register(context, credentials) {
     return new Promise((resolve) => {
       axios
-        .post("/users", {
+        .post("/api/users", {
           email: credentials.email,
           password: credentials.password,
           username: credentials.username,
@@ -312,7 +323,8 @@ export default {
 
   setArticles(context, articles) {
     articles.forEach((article) => {
-      if (article.tags.length > 0) {
+      
+      if (article.tags !== undefined && article.tags.length > 0) {
         article.tags = article.tags.split(",");
       } else {
         article.tags = [];
@@ -354,7 +366,7 @@ export default {
     console.log(`Handling action: toggleArticleFavorite (${params.action})`);
     return new Promise((resolve) => {
       axios
-        .post(`/articles/${params.slug}/favorite`, {
+        .post(`/api/articles/${params.slug}/favorite`, {
           action: params.action,
           user_id: context.getters.user.id,
         })
@@ -365,6 +377,46 @@ export default {
         .catch((error) => {
           console.log(error);
           console.log("toggleArticleFavorite unsuccessful.");
+          resolve(error.response);
+        });
+    });
+  },
+
+  followAuthor(context, params) {
+    console.log(`Handling action: toggleFollowAuthor (${params.action})`);
+    return new Promise((resolve) => {
+      axios
+        .post(`/api/profiles/${params.username}/follow`, {
+          user_id: context.getters.user.id,
+        })
+        .then(async (response) => {
+          console.log("followAuthor successful.");
+          context.dispatch("setProfile", response.data.profile);
+
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log("followAuthor unsuccessful.");
+          resolve(error.response);
+        });
+    });
+  },
+
+  unfollowAuthor(context, params) {
+    console.log(`Handling action: toggleFollowAuthor (${params.action})`);
+    return new Promise((resolve) => {
+      axios
+        .delete(`/api/profiles/${params.username}/follow`, { data: {
+          user_id: context.getters.user.id,
+        }})
+        .then(async (response) => {
+          console.log("unfollowAuthor successful.");
+          context.dispatch("setProfile", response.data.profile);
+
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log("ufollowAuthor unsuccessful.");
           resolve(error.response);
         });
     });
@@ -384,6 +436,7 @@ export default {
     context.commit("setProfile", userDefault);
   },
 
+
   updateArticle(context, article) {
     console.log("Handling action: updateArticle");
     article.author_id = context.getters.user.id;
@@ -391,7 +444,7 @@ export default {
     console.log(article);
     return new Promise((resolve) => {
       axios
-        .put("/articles", {
+        .put("/api/articles", {
           article,
         })
         .then((response) => {
@@ -418,7 +471,7 @@ export default {
         params.password = user.password;
       }
       axios
-        .post("/user", params)
+        .post("/api/user", params)
         .then((response) => {
           console.log("User updated successfuly.");
           context.dispatch("setUser", response.data.user);
