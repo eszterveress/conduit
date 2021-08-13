@@ -1,0 +1,138 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "NameError: name 'time' is not defined",
+      "children" : [ {
+        "name" : "test_cookie",
+        "uid" : "1f1712b6f2e8f0d1",
+        "parentUid" : "f2d298c75ef72f8baafdf275f5959cf0",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864871126,
+          "stop" : 1628864877717,
+          "duration" : 6591
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "f2d298c75ef72f8baafdf275f5959cf0"
+    }, {
+      "name" : "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@class=\"nav-link\" and contains(text(),\"Log out\")]\"}\n  (Session info: headless chrome=92.0.4515.131)",
+      "children" : [ {
+        "name" : "test_logout",
+        "uid" : "b5897438660efe76",
+        "parentUid" : "9fb818fb48d9716e9379d6f0bcd4b6bf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864882878,
+          "stop" : 1628864884729,
+          "duration" : 1851
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_login",
+        "uid" : "7da803dc059ff1e3",
+        "parentUid" : "9fb818fb48d9716e9379d6f0bcd4b6bf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864884899,
+          "stop" : 1628864888312,
+          "duration" : 3413
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_data_save",
+        "uid" : "47817fc53c5f2530",
+        "parentUid" : "9fb818fb48d9716e9379d6f0bcd4b6bf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864951105,
+          "stop" : 1628864953012,
+          "duration" : 1907
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "9fb818fb48d9716e9379d6f0bcd4b6bf"
+    }, {
+      "name" : "selenium.common.exceptions.TimeoutException: Message:",
+      "children" : [ {
+        "name" : "test_pagination",
+        "uid" : "5d6ddd12c14469a3",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864890413,
+          "stop" : 1628864902506,
+          "duration" : 12093
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_new_data",
+        "uid" : "a416e103d8ab507d",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864902572,
+          "stop" : 1628864914647,
+          "duration" : 12075
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_data_from_file",
+        "uid" : "88bcc3485a30f469",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864914714,
+          "stop" : 1628864926798,
+          "duration" : 12084
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_data_change",
+        "uid" : "166b309c6460024b",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864926811,
+          "stop" : 1628864938885,
+          "duration" : 12074
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_del_data",
+        "uid" : "dadf7ed93386b3a5",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628864938897,
+          "stop" : 1628864950981,
+          "duration" : 12084
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "31bb78a6a95ede3f78b260ed048910d8"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
