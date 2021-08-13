@@ -113,6 +113,13 @@ def test_data_list():
 
 def test_pagination():
     browser = setup_env()
+    sign_in = webdriver_wait_xpath(browser, '//a[@href="#/login"]')
+    sign_in.click()
+    user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
+    email_log = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
+    email_log.send_keys(user_data[1])
+    pw_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[2]/input')
+    pw_log.send_keys(user_data[2])
     home_page = browser.find_element_by_xpath('//*[@href="#/"]')
     home_page.click()
     second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
