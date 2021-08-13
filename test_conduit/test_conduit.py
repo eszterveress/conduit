@@ -114,8 +114,6 @@ def test_data_list():
 def test_pagination():
     browser = setup_env()
     conduit_registration(browser)
-    home_page = browser.find_element_by_xpath('//*[@href="#/"]')
-    home_page.click()
     second_page = browser.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
     second_page.click()
     # Ellenőrizzük, hogy a 2. oldalra kattintás után az az oldal válik-e aktívvá
@@ -128,7 +126,7 @@ def test_pagination():
 def test_new_data():
     browser = setup_env()
     conduit_registration(browser)
-    settings = webdriver_wait_xpath(browser, '//a[@href="#/editor"]')
+    settings = browser.find_element_by_xpath('//a[@href="#/editor"]')
     settings.click()
     article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
     article_title.send_keys("Tesztelni jó!")
