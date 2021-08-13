@@ -78,7 +78,7 @@ def test_login():
     logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
     logout_button.click()
     browser.find_element_by_xpath('//a[@href="#/login"]').click()
-    user_data = ["TesztUser77", "TesztUser77@gmail.com", "Teszt12123"]
+    user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
     email_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
     email_log.send_keys(user_data[1])
     pw_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[2]/input')
@@ -86,6 +86,7 @@ def test_login():
     browser.find_element_by_xpath('//button[1]').click()
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     assert name_tag.text == user_data[0]
+    conduit_logout(browser)
 
 
 # # Adatok listázása (az alkalmazásban található tagek listába gyűjtése, majd fájlba írása)
