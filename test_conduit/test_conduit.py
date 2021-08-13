@@ -1,6 +1,6 @@
 # import time
 import csv
-from csv import reader
+
 # import pytest
 from selenium import webdriver
 # from selenium.webdriver.common.by import By
@@ -139,8 +139,7 @@ def test_data_from_file():
     browser = setup_env()
     conduit_registration(browser)
     article_data = []
-    input_data = "adatok_cikkhez.csv"
-    with open(input_data, 'r', encoding="utf-8") as data_file:
+    with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
         table_reader = csv.reader(data_file, delimiter=";")
         next(table_reader)
         for row in table_reader:
