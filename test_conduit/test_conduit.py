@@ -89,37 +89,34 @@ def setup_env():
 # # Adatok listázása (az alkalmazásban található tagek listába gyűjtése, majd fájlba írása)
 
 
-def test_data_list():
-    browser = setup_env()
-    conduit_registration(browser)
-    tags = browser.find_elements_by_xpath('//a[@class="tag-pill tag-default"]')
-    tag_list = []
-    for i in tags:
-        tag_list.append(i.text)
-    with open("lista.txt", "w") as tag_lista:
-        for j in tag_list:
-            tag_lista.write(j + "\n")
-    with open("lista.txt", "r") as lista:
-        text_content=lista.read().splitlines()
-    assert tag_list == text_content
-    conduit_logout(browser)
+# def test_data_list():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     tags = browser.find_elements_by_xpath('//a[@class="tag-pill tag-default"]')
+#     tag_list = []
+#     for i in tags:
+#         tag_list.append(i.text)
+#     with open("lista.txt", "w") as tag_lista:
+#         for j in tag_list:
+#             tag_lista.write(j + "\n")
+#     with open("lista.txt", "r") as lista:
+#         text_content=lista.read().splitlines()
+#     assert tag_list == text_content
+#     conduit_logout(browser)
 
 # # Több oldalas lista bejárása (lapozás működésének vizsgálata)
-#
-# def test_pagination(browser):
-#     #     conduit_registration(browser)
-#     first_page = browser.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[1]/a')
-#     second_page = browser.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
-#     second_page.click()
-#     webdriver_wait_xpath(browser,'//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
-#     active_page = browser.find_element_by_xpath('//*[@class="page-item active"]')
-#     assert second_page.text == active_page.text
-#     first_page.click()
-#     webdriver_wait_xpath(browser,'//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
-#     print(first_page.text)
-#     assert first_page.text == active_page.text
-#     # conduit_logout(browser)
-#
+
+def test_pagination():
+    browser = setup_env()
+    conduit_registration(browser)
+    first_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[1]/a')
+    second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
+    second_page.click()
+    # Megnézem a 2. oldalra kattintás után, hogy az válik-e aktívvá
+    active_page = browser.find_element_by_xpath('//*[@class="page-item active"]')
+    assert second_page.text == active_page.text
+    conduit_logout(browser)
+
 # # Új adat bevitel (a felhasználó bemutatkozásának kitöltése)
 #
 # def test_new_data(browser):
