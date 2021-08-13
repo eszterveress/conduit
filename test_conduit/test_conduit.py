@@ -199,7 +199,6 @@ def test_del_data():
 
 def test_data_save():
     browser = setup_env()
-    conduit_registration(browser)
     conduit = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/a')
     with open("conduit.txt", "w") as file:
         file.write(conduit.text)
