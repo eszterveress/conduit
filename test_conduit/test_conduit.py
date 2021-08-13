@@ -112,10 +112,10 @@ def test_data_list():
 
 def test_pagination():
     browser = setup_env()
-    second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
+    second_page = browser.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
     second_page.click()
     # Ellenőrizzük, hogy a 2. oldalra kattintás után az az oldal válik-e aktívvá
-    active_page = browser.find_element_by_xpath('//*[@class="page-item active"]')
+    active_page = webdriver_wait_xpath(browser, '//*[@class="page-item active"]')
     assert second_page.text == active_page.text
 
 # # Új adat bevitel (új bejegyzés létrehozása csak címmel)
