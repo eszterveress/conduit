@@ -1,0 +1,111 @@
+[ {
+  "uid" : "dd5eacace2e5ff2d",
+  "name" : "test_del_data",
+  "time" : {
+    "start" : 1628871490505,
+    "stop" : 1628871502355,
+    "duration" : 11850
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "614a089009183111",
+  "name" : "test_logout",
+  "time" : {
+    "start" : 1628871436330,
+    "stop" : 1628871439526,
+    "duration" : 3196
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bc7e1afe99dc3e95",
+  "name" : "test_cookie",
+  "time" : {
+    "start" : 1628871424781,
+    "stop" : 1628871431794,
+    "duration" : 7013
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2e4b627b2ba8e709",
+  "name" : "test_new_data",
+  "time" : {
+    "start" : 1628871455840,
+    "stop" : 1628871466685,
+    "duration" : 10845
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "b19c6d6899ffce6",
+  "name" : "test_registration",
+  "time" : {
+    "start" : 1628871431797,
+    "stop" : 1628871436328,
+    "duration" : 4531
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "769f67b8493313de",
+  "name" : "test_pagination",
+  "time" : {
+    "start" : 1628871443689,
+    "stop" : 1628871455639,
+    "duration" : 11950
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "ca8e238a6ea7724a",
+  "name" : "test_data_save",
+  "time" : {
+    "start" : 1628871502472,
+    "stop" : 1628871504139,
+    "duration" : 1667
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "e361636d94f07977",
+  "name" : "test_data_change",
+  "time" : {
+    "start" : 1628871478627,
+    "stop" : 1628871490495,
+    "duration" : 11868
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "5380842de4b87892",
+  "name" : "test_login",
+  "time" : {
+    "start" : 1628871439528,
+    "stop" : 1628871441947,
+    "duration" : 2419
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8b38fa7c98c1fb4a",
+  "name" : "test_data_list",
+  "time" : {
+    "start" : 1628871441950,
+    "stop" : 1628871443687,
+    "duration" : 1737
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2cbaab24b0341df8",
+  "name" : "test_data_from_file",
+  "time" : {
+    "start" : 1628871466763,
+    "stop" : 1628871478617,
+    "duration" : 11854
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]
