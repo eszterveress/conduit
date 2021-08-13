@@ -163,7 +163,18 @@ def test_new_data():
 
 def test_data_from_file():
     browser = setup_env()
-    conduit_registration(browser)
+    sign_up = webdriver_wait_xpath(browser, '//a[@href="#/register"]')
+    sign_up.click()
+    username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
+    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+    user_data = ["TesztUser444", "TesztUser444@gmail.com", "Teszt12123"]
+    username.send_keys(user_data[0])
+    email.send_keys(user_data[1])
+    password.send_keys(user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+    element.click()
     article_data = []
     with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
         table_reader = csv.reader(data_file, delimiter=";")
@@ -190,6 +201,18 @@ def test_data_from_file():
 
 def test_data_change():
     browser = setup_env()
+    sign_up = webdriver_wait_xpath(browser, '//a[@href="#/register"]')
+    sign_up.click()
+    username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
+    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+    user_data = ["TesztUser555", "TesztUser555@gmail.com", "Teszt12123"]
+    username.send_keys(user_data[0])
+    email.send_keys(user_data[1])
+    password.send_keys(user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+    element.click()
     settings = webdriver_wait_xpath(browser, '//*[@href="#/settings"]')
     settings.click()
     name_field = webdriver_wait_xpath(browser, '//*[@placeholder="Your username"]')
@@ -207,6 +230,18 @@ def test_data_change():
 
 def test_del_data():
     browser = setup_env()
+    sign_up = webdriver_wait_xpath(browser, '//a[@href="#/register"]')
+    sign_up.click()
+    username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
+    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+    user_data = ["TesztUser666", "TesztUser666@gmail.com", "Teszt12123"]
+    username.send_keys(user_data[0])
+    email.send_keys(user_data[1])
+    password.send_keys(user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+    element.click()
     new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
     new_article.click()
     user_data = ["TesztUser20", "TesztUser56@gmail.com", "Teszt1217879"]
@@ -230,6 +265,18 @@ def test_del_data():
 
 def test_data_save():
     browser = setup_env()
+    sign_up = webdriver_wait_xpath(browser, '//a[@href="#/register"]')
+    sign_up.click()
+    username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
+    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+    user_data = ["TesztUser777", "TesztUser777@gmail.com", "Teszt12123"]
+    username.send_keys(user_data[0])
+    email.send_keys(user_data[1])
+    password.send_keys(user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+    element.click()
     conduit = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/a')
     with open("conduit.txt", "w") as file:
         file.write(conduit.text)
