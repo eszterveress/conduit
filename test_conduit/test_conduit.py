@@ -59,7 +59,7 @@ def test_registration():
 
 def test_logout():
     browser = setup_env()
-    logout_button = webdriver_wait_xpath(browser, '//*[@class="nav-link" and contains(text(),"Log out")]')
+    logout_button = browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[5]/a')
     logout_button.click()
     browser.refresh()
     text_no_article = webdriver_wait_xpath(browser, '//*[@class="article-preview"]')
@@ -73,7 +73,6 @@ def test_logout():
 
 def test_login():
     browser = setup_env()
-    conduit_registration(browser)
     logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
     logout_button.click()
     browser.find_element_by_xpath('//a[@href="#/login"]').click()
@@ -85,7 +84,7 @@ def test_login():
     browser.find_element_by_xpath('//button[1]').click()
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     assert name_tag.text == user_data[0]
-    conduit_logout(browser)
+
 
 
 # # Adatok listázása (az alkalmazásban található tagek listába gyűjtése, majd fájlba írása)
