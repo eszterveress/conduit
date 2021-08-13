@@ -135,46 +135,46 @@ def setup_env():
 # # Ismételt és sorozatos adatbevitel adatforrásból (új cikk létrehozása csv fájl segítségével)
 
 
-def test_data_from_file():
-    browser = setup_env()
-    conduit_registration(browser)
-    article_data = []
-    with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
-        table_reader = csv.reader(data_file, delimiter=";")
-        next(table_reader)
-        for row in table_reader:
-            article_data.append(row)
-    new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
-    new_article.click()
-    article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
-    article_about = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[2]/input')
-    article_text = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
-    article_title.send_keys(article_data[0])
-    article_about.send_keys(article_data[1])
-    article_text.send_keys(article_data[2])
-    submit_button = webdriver_wait_xpath(browser,'//button[@type="submit"]')
-    submit_button.click()
-    article_title_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
-    assert article_title_page.text == "Uj bejegyzes"
-    conduit_logout(browser)
+# def test_data_from_file():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     article_data = []
+#     with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
+#         table_reader = csv.reader(data_file, delimiter=";")
+#         next(table_reader)
+#         for row in table_reader:
+#             article_data.append(row)
+#     new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
+#     new_article.click()
+#     article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
+#     article_about = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[2]/input')
+#     article_text = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
+#     article_title.send_keys(article_data[0])
+#     article_about.send_keys(article_data[1])
+#     article_text.send_keys(article_data[2])
+#     submit_button = webdriver_wait_xpath(browser,'//button[@type="submit"]')
+#     submit_button.click()
+#     article_title_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
+#     assert article_title_page.text == "Uj bejegyzes"
+#     conduit_logout(browser)
 
 
 # # Meglévő adat módosítás (felhasználó nevének módosítása)
 
-# def test_data_change():
-#     browser = setup_env()
-#     conduit_registration(browser)
-#     settings = webdriver_wait_xpath(browser, '//*[@href="#/settings"]')
-#     settings.click()
-#     name_field = webdriver_wait_xpath(browser, '//*[@placeholder="Your username"]')
-#     name_field.clear()
-#     name_field.send_keys("tesztella")
-#     browser.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]').click()
-#     ok_button = webdriver_wait_xpath(browser, '//*[@class="swal-button swal-button--confirm"]')
-#     ok_button.click()
-#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-#     assert name_tag.text == "tesztella"
-#     conduit_logout(browser)
+def test_data_change():
+    browser = setup_env()
+    conduit_registration(browser)
+    settings = webdriver_wait_xpath(browser, '//*[@href="#/settings"]')
+    settings.click()
+    name_field = webdriver_wait_xpath(browser, '//*[@placeholder="Your username"]')
+    name_field.clear()
+    name_field.send_keys("tesztella")
+    browser.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]').click()
+    ok_button = webdriver_wait_xpath(browser, '//*[@class="swal-button swal-button--confirm"]')
+    ok_button.click()
+    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+    assert name_tag.text == "tesztella"
+    conduit_logout(browser)
 
 # # Adat vagy adatok törlése
 #
