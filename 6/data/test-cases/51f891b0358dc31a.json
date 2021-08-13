@@ -1,12 +1,12 @@
 {
-  "uid" : "e104c107a722215a",
+  "uid" : "51f891b0358dc31a",
   "name" : "test_cookie",
   "fullName" : "test_conduit.test_conduit#test_cookie",
   "historyId" : "760d0cd8167adc83bd4dea504af81fc8",
   "time" : {
-    "start" : 1628846206399,
-    "stop" : 1628846210755,
-    "duration" : 4356
+    "start" : 1628846519511,
+    "stop" : 1628846528114,
+    "duration" : 8603
   },
   "status" : "broken",
   "statusMessage" : "NameError: name 'name_tag' is not defined",
@@ -20,15 +20,15 @@
     "statusTrace" : "def test_cookie():\n        browser = setup_env()\n        cookie_window = browser.find_element_by_xpath('//div[@class=\"cookie__bar__content\"]')\n        assert cookie_window.text == \"We use cookies to ensure you get the best experience on our website. Learn More...\"\n        accept_cookie = browser.find_element_by_xpath('//*[@id=\"cookie-policy-panel\"]/div/div[2]/button[2]')\n        accept_cookie.click()\n        # button_list = webdriver_wait_xpath(browser, '//button')\n        time.sleep(1)\n        button_list = browser.find_elements_by_xpath('//button')\n        assert len(button_list) == 0\n        browser.quit()\n    \n    # Regisztráció (valid adatokkal)\n    \n    \n    # def test_registration():\n    #     browser = setup_env()\n    #     browser.find_element_by_xpath('//a[@href=\"#/register\"]').click()\n    #     username = browser.find_element_by_xpath('//*[@placeholder=\"Username\"]')\n    #     email = browser.find_element_by_xpath('//*[@placeholder=\"Email\"]')\n    #     password = browser.find_element_by_xpath('//*[@placeholder=\"Password\"]')\n    #     test_user_data = [\"TesztUser14\", \"TesztUser19@gmail.com\", \"Teszt12123\"]\n    #     username.send_keys(test_user_data[0])\n    #     email.send_keys(test_user_data[1])\n    #     password.send_keys(test_user_data[2])\n    #     browser.find_element_by_xpath('//button[1]').click()\n    #     element = webdriver_wait_xpath(browser, '//button[@class=\"swal-button swal-button--confirm\"]')\n    #     element.click()\n    #     name_tag = webdriver_wait_xpath(browser, '//*[@id=\"app\"]/nav/div/ul/li[4]/a')\n    \n        # name_tag = browser.find_element_by_xpath('//*[@id=\"app\"]/nav/div/ul/li[4]/a')\n>       assert name_tag.text == \"TesztUser14\"\nE       NameError: name 'name_tag' is not defined\n\ntest_conduit/test_conduit.py:58: NameError",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "f63a8e6746a2fa3d",
+      "uid" : "94d47d3918a38d5c",
       "name" : "log",
-      "source" : "f63a8e6746a2fa3d.txt",
+      "source" : "94d47d3918a38d5c.txt",
       "type" : "text/plain",
       "size" : 642
     }, {
-      "uid" : "dbb5357f53eae246",
+      "uid" : "f71a4341c74da1ef",
       "name" : "stderr",
-      "source" : "dbb5357f53eae246.txt",
+      "source" : "f71a4341c74da1ef.txt",
       "type" : "text/plain",
       "size" : 435
     } ],
@@ -47,10 +47,10 @@
     "value" : "test_conduit"
   }, {
     "name" : "host",
-    "value" : "fv-az77-942"
+    "value" : "fv-az83-93"
   }, {
     "name" : "thread",
-    "value" : "3709-MainThread"
+    "value" : "3707-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -78,6 +78,6 @@
     } ],
     "tags" : [ ]
   },
-  "source" : "e104c107a722215a.json",
+  "source" : "51f891b0358dc31a.json",
   "parameterValues" : [ ]
 }
