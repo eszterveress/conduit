@@ -1,34 +1,34 @@
 {
-  "uid" : "4ea0827efcd278a0",
+  "uid" : "a2d34f2dc5ae08a4",
   "name" : "test_data_from_file",
   "fullName" : "test_conduit.test_conduit#test_data_from_file",
   "historyId" : "39a13d77160780a636dc21e0d7f3992a",
   "time" : {
-    "start" : 1628858015949,
-    "stop" : 1628858028552,
-    "duration" : 12603
+    "start" : 1628858110796,
+    "stop" : 1628858116719,
+    "duration" : 5923
   },
   "status" : "broken",
   "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'",
-  "statusTrace" : "def test_data_from_file():\n        browser = setup_env()\n        conduit_registration(browser)\n        article_data = []\n>       with open('adatok_cikkhez.csv', 'r', encoding=\"utf-8\") as data_file:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'\n\ntest_conduit/test_conduit.py:142: FileNotFoundError",
+  "statusTrace" : "def test_data_from_file():\n        browser = setup_env()\n        conduit_registration(browser)\n        article_data = []\n        input_data = \"adatok_cikkhez.csv\"\n>       with open(input_data, 'r', encoding=\"utf-8\") as data_file:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'\n\ntest_conduit/test_conduit.py:143: FileNotFoundError",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ ],
   "testStage" : {
     "status" : "broken",
     "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'",
-    "statusTrace" : "def test_data_from_file():\n        browser = setup_env()\n        conduit_registration(browser)\n        article_data = []\n>       with open('adatok_cikkhez.csv', 'r', encoding=\"utf-8\") as data_file:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'\n\ntest_conduit/test_conduit.py:142: FileNotFoundError",
+    "statusTrace" : "def test_data_from_file():\n        browser = setup_env()\n        conduit_registration(browser)\n        article_data = []\n        input_data = \"adatok_cikkhez.csv\"\n>       with open(input_data, 'r', encoding=\"utf-8\") as data_file:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'\n\ntest_conduit/test_conduit.py:143: FileNotFoundError",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "534210c39c57e8c4",
+      "uid" : "964f5fc1929e614e",
       "name" : "log",
-      "source" : "534210c39c57e8c4.txt",
+      "source" : "964f5fc1929e614e.txt",
       "type" : "text/plain",
       "size" : 642
     }, {
-      "uid" : "7c6cfc32de2027d",
+      "uid" : "a8a69a76d528c0f6",
       "name" : "stderr",
-      "source" : "7c6cfc32de2027d.txt",
+      "source" : "a8a69a76d528c0f6.txt",
       "type" : "text/plain",
       "size" : 435
     } ],
@@ -47,10 +47,10 @@
     "value" : "test_conduit"
   }, {
     "name" : "host",
-    "value" : "fv-az83-93"
+    "value" : "fv-az77-942"
   }, {
     "name" : "thread",
-    "value" : "3700-MainThread"
+    "value" : "3696-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -78,6 +78,6 @@
     } ],
     "tags" : [ ]
   },
-  "source" : "4ea0827efcd278a0.json",
+  "source" : "a2d34f2dc5ae08a4.json",
   "parameterValues" : [ ]
 }
