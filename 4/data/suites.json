@@ -1,26 +1,5 @@
 {
   "uid" : "98d3104e051c652961429bf95fa0b5d6",
-  "children" : [ {
-    "name" : "test_conduit",
-    "children" : [ {
-      "name" : "test_conduit",
-      "children" : [ {
-        "name" : "test_cookie",
-        "uid" : "abd53e604ba3e51c",
-        "parentUid" : "714b96e49dcc4894d6cc1dc30ee779b4",
-        "status" : "broken",
-        "time" : {
-          "start" : 1628845841628,
-          "stop" : 1628845846356,
-          "duration" : 4728
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      } ],
-      "uid" : "714b96e49dcc4894d6cc1dc30ee779b4"
-    } ],
-    "uid" : "09e222cda9719ade62f3f4244b24ac14"
-  } ],
+  "children" : [ ],
   "name" : "suites"
 }
