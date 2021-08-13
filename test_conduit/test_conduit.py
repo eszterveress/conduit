@@ -78,7 +78,8 @@ def test_login():
     conduit_registration(browser)
     logout_button = webdriver_wait_xpath(browser, '//a[contains(text(),"Log out")]')
     logout_button.click()
-    browser.find_element_by_xpath('//a[@href="#/login"]').click()
+    sign_in = webdriver_wait_xpath(browser, '//a[@href="#/login"]')
+    sign_in.click()
     user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
     email_log = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
     email_log.send_keys(user_data[1])
