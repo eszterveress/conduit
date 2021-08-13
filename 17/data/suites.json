@@ -1,0 +1,26 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "test_conduit",
+    "children" : [ {
+      "name" : "test_conduit",
+      "children" : [ {
+        "name" : "test_data_from_file",
+        "uid" : "eb7ed8ba342fd29f",
+        "parentUid" : "714b96e49dcc4894d6cc1dc30ee779b4",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628856652068,
+          "stop" : 1628856658361,
+          "duration" : 6293
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "714b96e49dcc4894d6cc1dc30ee779b4"
+    } ],
+    "uid" : "09e222cda9719ade62f3f4244b24ac14"
+  } ],
+  "name" : "suites"
+}

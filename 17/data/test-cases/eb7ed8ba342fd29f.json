@@ -1,0 +1,83 @@
+{
+  "uid" : "eb7ed8ba342fd29f",
+  "name" : "test_data_from_file",
+  "fullName" : "test_conduit.test_conduit#test_data_from_file",
+  "historyId" : "39a13d77160780a636dc21e0d7f3992a",
+  "time" : {
+    "start" : 1628856652068,
+    "stop" : 1628856658361,
+    "duration" : 6293
+  },
+  "status" : "broken",
+  "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'",
+  "statusTrace" : "def test_data_from_file():\n        browser = setup_env()\n        conduit_registration(browser)\n        article_data = []\n>       with open('adatok_cikkhez.csv', 'r', encoding=\"utf-8\") as data_file:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'\n\ntest_conduit/test_conduit.py:142: FileNotFoundError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'",
+    "statusTrace" : "def test_data_from_file():\n        browser = setup_env()\n        conduit_registration(browser)\n        article_data = []\n>       with open('adatok_cikkhez.csv', 'r', encoding=\"utf-8\") as data_file:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'\n\ntest_conduit/test_conduit.py:142: FileNotFoundError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "274543ff0e5b71d5",
+      "name" : "log",
+      "source" : "274543ff0e5b71d5.txt",
+      "type" : "text/plain",
+      "size" : 642
+    }, {
+      "uid" : "8617bf5274ddef4c",
+      "name" : "stderr",
+      "source" : "8617bf5274ddef4c.txt",
+      "type" : "text/plain",
+      "size" : 435
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_conduit"
+  }, {
+    "name" : "suite",
+    "value" : "test_conduit"
+  }, {
+    "name" : "host",
+    "value" : "fv-az33-581"
+  }, {
+    "name" : "thread",
+    "value" : "3810-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_conduit.test_conduit"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "eb7ed8ba342fd29f.json",
+  "parameterValues" : [ ]
+}
