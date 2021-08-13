@@ -68,7 +68,7 @@ def test_logout():
     # Ellenőrizzük, hogy kilépés után a kezdőoldalon nem látszanak a bejegyzések
     # (a bejegyzéseket csak a bejelentkezett felhasználó láthatja)
     assert text_no_article.text == "No articles are here... yet."
-
+    browser.quit()
 
 # # # Bejelentkezés
 
