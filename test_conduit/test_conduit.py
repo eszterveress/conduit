@@ -41,7 +41,7 @@ def test_registration():
     username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
-    user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
+    user_data = ["TesztUser111", "TesztUser111@gmail.com", "Teszt12123"]
     username.send_keys(user_data[0])
     email.send_keys(user_data[1])
     password.send_keys(user_data[2])
@@ -51,7 +51,7 @@ def test_registration():
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     # Ellenőrizzük, hogy a regisztráció végeztével megjelenik a felhasználónév, azaz a felhasználó belépett
     assert name_tag.text == user_data[0]
-    conduit_logout(browser)
+
 
 
 # Kijelentkezés
@@ -59,7 +59,6 @@ def test_registration():
 
 def test_logout():
     browser = setup_env()
-    conduit_registration(browser)
     logout_button = webdriver_wait_xpath(browser, '//*[@class="nav-link" and contains(text(),"Log out")]')
     logout_button.click()
     browser.refresh()
