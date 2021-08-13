@@ -1,0 +1,152 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "test_conduit.test_conduit",
+    "children" : [ {
+      "name" : "test_cookie",
+      "uid" : "49b08dfd35e0ebd",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628878650032,
+        "stop" : 1628878653966,
+        "duration" : 3934
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_registration",
+      "uid" : "7879c027600743ed",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628878653970,
+        "stop" : 1628878658963,
+        "duration" : 4993
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_logout",
+      "uid" : "81232accf2a0d1f4",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628878658970,
+        "stop" : 1628878662584,
+        "duration" : 3614
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_login",
+      "uid" : "6ebfcb4f7fa03ebe",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628878662587,
+        "stop" : 1628878665277,
+        "duration" : 2690
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_data_list",
+      "uid" : "c14cf50069425a08",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1628878665281,
+        "stop" : 1628878667252,
+        "duration" : 1971
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_pagination",
+      "uid" : "67d6a567042d00fa",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "broken",
+      "time" : {
+        "start" : 1628878667256,
+        "stop" : 1628878670023,
+        "duration" : 2767
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_new_data",
+      "uid" : "b8eeac78b85d4fa9",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "broken",
+      "time" : {
+        "start" : 1628878670287,
+        "stop" : 1628878672993,
+        "duration" : 2706
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_data_from_file",
+      "uid" : "5bbbc6cee837454a",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "broken",
+      "time" : {
+        "start" : 1628878673038,
+        "stop" : 1628878685039,
+        "duration" : 12001
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_data_change",
+      "uid" : "88aa644cf021c413",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "broken",
+      "time" : {
+        "start" : 1628878685052,
+        "stop" : 1628878697076,
+        "duration" : 12024
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_del_data",
+      "uid" : "424a00098a5f1052",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "broken",
+      "time" : {
+        "start" : 1628878697090,
+        "stop" : 1628878709105,
+        "duration" : 12015
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_data_save",
+      "uid" : "8bc04f0798b5336a",
+      "parentUid" : "f92ec38412b20630a99541bd50f5697f",
+      "status" : "broken",
+      "time" : {
+        "start" : 1628878709234,
+        "stop" : 1628878710095,
+        "duration" : 861
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "test_conduit.test_conduit"
+  } ],
+  "name" : "packages"
+}
