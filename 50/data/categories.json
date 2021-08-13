@@ -1,0 +1,99 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: Unable to locate an element with the xpath expression ////*[@id=\"app\"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2] because of the following error:\nSyntaxError: Failed to execute 'evaluate' on 'Document': The string '////*[@id=\"app\"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]' is not a valid XPath expression.\n  (Session info: headless chrome=92.0.4515.131)",
+      "children" : [ {
+        "name" : "test_pagination",
+        "uid" : "d90a638bf29b6d16",
+        "parentUid" : "2f153f640949c4669129394ed69ca313",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628876458180,
+          "stop" : 1628876460116,
+          "duration" : 1936
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2f153f640949c4669129394ed69ca313"
+    }, {
+      "name" : "selenium.common.exceptions.TimeoutException: Message:",
+      "children" : [ {
+        "name" : "test_new_data",
+        "uid" : "7f9928ac4d8c4886",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628876460355,
+          "stop" : 1628876472330,
+          "duration" : 11975
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_data_from_file",
+        "uid" : "6aa9ecf2a5d12cb",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628876472341,
+          "stop" : 1628876484242,
+          "duration" : 11901
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_data_change",
+        "uid" : "298509f3fdfcf3aa",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628876484253,
+          "stop" : 1628876496080,
+          "duration" : 11827
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_del_data",
+        "uid" : "e3967c9eb60cc60c",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628876496090,
+          "stop" : 1628876507963,
+          "duration" : 11873
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "31bb78a6a95ede3f78b260ed048910d8"
+    }, {
+      "name" : "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@class=\"nav-link\" and contains(text(),\"Log out\")]\"}\n  (Session info: headless chrome=92.0.4515.131)",
+      "children" : [ {
+        "name" : "test_data_save",
+        "uid" : "f6bcb09a45705474",
+        "parentUid" : "9fb818fb48d9716e9379d6f0bcd4b6bf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628876508081,
+          "stop" : 1628876509739,
+          "duration" : 1658
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "9fb818fb48d9716e9379d6f0bcd4b6bf"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
