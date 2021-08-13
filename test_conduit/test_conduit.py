@@ -1,6 +1,7 @@
 import csv
 from selenium import webdriver
 from conduit_data import *
+import time
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
@@ -35,8 +36,9 @@ def test_cookie():
 
 def test_registration():
     browser = setup_env()
-    browser.find_element_by_xpath('//a[@href="#/register"]').click()
-    username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
+    sign_up = webdriver_wait_xpath(browser, '//a[@href="#/register"]')
+    sign_up.click()
+    username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
     user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
@@ -56,10 +58,10 @@ def test_registration():
 
 def test_logout():
     browser = setup_env()
-    logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
+    logout_button = webdriver_wait_xpath(browser, '//*[@class="nav-link" and contains(text(),"Log out")]')
     logout_button.click()
     browser.refresh()
-    text_no_article = browser.find_element_by_xpath('//*[@class="article-preview"]')
+    text_no_article = webdriver_wait_xpath(browser, '//*[@class="article-preview"]')
     # Ellenőrizzük, hogy kilépés után a kezdőoldalon nem látszanak a bejegyzések
     # (a bejegyzéseket csak a bejelentkezett felhasználó láthatja)
     assert text_no_article.text == "No articles are here... yet."
