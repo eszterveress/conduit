@@ -39,7 +39,7 @@ def test_registration():
     username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
-    user_data = ["TesztUser14", "TesztUser14@gmail.com", "Teszt12123"]
+    user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
     username.send_keys(user_data[0])
     email.send_keys(user_data[1])
     password.send_keys(user_data[2])
@@ -49,14 +49,13 @@ def test_registration():
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     # Ellenőrizzük, hogy a regisztráció végeztével megjelenik a felhasználónév, azaz a felhasználó belépett
     assert name_tag.text == user_data[0]
-    browser.quit()
+
 
 # Kijelentkezés
 
 
 def test_logout():
     browser = setup_env()
-    conduit_registration(browser)
     logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
     logout_button.click()
     browser.refresh()
@@ -64,7 +63,7 @@ def test_logout():
     # Ellenőrizzük, hogy kilépés után a kezdőoldalon nem látszanak a bejegyzések
     # (a bejegyzéseket csak a bejelentkezett felhasználó láthatja)
     assert text_no_article.text == "No articles are here... yet."
-    browser.quit()
+
 
 # # # Bejelentkezés
 
@@ -75,7 +74,7 @@ def test_login():
     logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
     logout_button.click()
     browser.find_element_by_xpath('//a[@href="#/login"]').click()
-    user_data = ["TesztUser14", "TesztUser14@gmail.com", "Teszt12123"]
+    user_data = ["TesztUser77", "TesztUser77@gmail.com", "Teszt12123"]
     email_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
     email_log.send_keys(user_data[1])
     pw_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[2]/input')
@@ -83,14 +82,13 @@ def test_login():
     browser.find_element_by_xpath('//button[1]').click()
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     assert name_tag.text == user_data[0]
-    conduit_logout(browser)
+
 
 # # Adatok listázása (az alkalmazásban található tagek listába gyűjtése, majd fájlba írása)
 
 
 def test_data_list():
     browser = setup_env()
-    conduit_registration(browser)
     tags = browser.find_elements_by_xpath('//a[@class="tag-pill tag-default"]')
     tag_list = []
     for i in tags:
@@ -102,28 +100,24 @@ def test_data_list():
         text_content=lista.read().splitlines()
     # Ellenőrizzük, hogy az oldalról kigyűjtött és a fájlba írt tagek megegyeznek
     assert tag_list == text_content
-    conduit_logout(browser)
+
 
 # # Több oldalas lista bejárása (lapozás működésének vizsgálata)
 
 
 def test_pagination():
     browser = setup_env()
-    conduit_registration(browser)
-    first_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[1]/a')
     second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
     second_page.click()
     # Ellenőrizzük, hogy a 2. oldalra kattintás után az az oldal válik-e aktívvá
     active_page = browser.find_element_by_xpath('//*[@class="page-item active"]')
     assert second_page.text == active_page.text
-    conduit_logout(browser)
 
 # # Új adat bevitel (új bejegyzés létrehozása csak címmel)
 
 
 def test_new_data():
     browser = setup_env()
-    conduit_registration(browser)
     settings = webdriver_wait_xpath(browser, '//a[@href="#/editor"]')
     settings.click()
     article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
@@ -132,14 +126,13 @@ def test_new_data():
     update_button.click()
     article_title_text = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
     assert article_title_text.text == "Tesztelni jó!"
-    conduit_logout(browser)
+
 
 # # Ismételt és sorozatos adatbevitel adatforrásból (új cikk létrehozása csv fájl segítségével)
 
 
 def test_data_from_file():
     browser = setup_env()
-    conduit_registration(browser)
     article_data = []
     with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
         table_reader = csv.reader(data_file, delimiter=";")
@@ -159,7 +152,6 @@ def test_data_from_file():
     article_title_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
     # Ellenőrizzük, hogy a cikk valóban létrejött a megadott címmel
     assert article_title_page.text == "Uj bejegyzes"
-    conduit_logout(browser)
 
 
 # # Meglévő adat módosítás (felhasználó nevének módosítása)
@@ -167,7 +159,6 @@ def test_data_from_file():
 
 def test_data_change():
     browser = setup_env()
-    conduit_registration(browser)
     settings = webdriver_wait_xpath(browser, '//*[@href="#/settings"]')
     settings.click()
     name_field = webdriver_wait_xpath(browser, '//*[@placeholder="Your username"]')
@@ -178,14 +169,13 @@ def test_data_change():
     ok_button.click()
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     assert name_tag.text == "tesztella"
-    conduit_logout(browser)
+
 
 # # Adat vagy adatok törlése (létrehozott új bejegyzés törlése)
 
 
 def test_del_data():
     browser = setup_env()
-    conduit_registration(browser)
     new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
     new_article.click()
     user_data = ["TesztUser20", "TesztUser56@gmail.com", "Teszt1217879"]
@@ -203,7 +193,6 @@ def test_del_data():
     name_tag.click()
     article_list = browser.find_elements_by_xpath('//*[@class="author router-link-exact-active router-link-active"]')
     assert len(article_list) == 0
-    conduit_logout(browser)
 
 # # Adatok lementése felületről (conduit címke fájlba mentése)
 
