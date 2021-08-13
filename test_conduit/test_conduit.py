@@ -179,37 +179,39 @@ def setup_env():
 # # Adat vagy adatok törlése
 
 
-def test_del_data():
-    browser = setup_env()
-    conduit_registration(browser)
-    new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
-    new_article.click()
-    user_data = ["TesztUser20", "TesztUser56@gmail.com", "Teszt1217879"]
-    article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
-    article_about = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[2]/input')
-    article_text = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
-    article_title.send_keys(user_data[0])
-    article_about.send_keys(user_data[1])
-    article_text.send_keys(user_data[2])
-    submit_button = webdriver_wait_xpath(browser, '//button[@type="submit"]')
-    submit_button.click()
-    delete_button = webdriver_wait_xpath(browser, '//button[@class="btn btn-outline-danger btn-sm"]')
-    delete_button.click()
-    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-    name_tag.click()
-    article_list = browser.find_elements_by_xpath('//*[@class="author router-link-exact-active router-link-active"]')
-    assert len(article_list) == 0
-    conduit_logout(browser)
+# def test_del_data():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
+#     new_article.click()
+#     user_data = ["TesztUser20", "TesztUser56@gmail.com", "Teszt1217879"]
+#     article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
+#     article_about = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[2]/input')
+#     article_text = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
+#     article_title.send_keys(user_data[0])
+#     article_about.send_keys(user_data[1])
+#     article_text.send_keys(user_data[2])
+#     submit_button = webdriver_wait_xpath(browser, '//button[@type="submit"]')
+#     submit_button.click()
+#     delete_button = webdriver_wait_xpath(browser, '//button[@class="btn btn-outline-danger btn-sm"]')
+#     delete_button.click()
+#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+#     name_tag.click()
+#     article_list = browser.find_elements_by_xpath('//*[@class="author router-link-exact-active router-link-active"]')
+#     assert len(article_list) == 0
+#     conduit_logout(browser)
 
 # # Adatok lementése felületről (conduit címke fájlba mentése)
-#
-# def test_data_save(browser):
-#     # conduit_registration(browser)
-#     conduit = browser.find_element_by_xpath('//*[@id="app"]/nav/div/a').text
-#     with open("conduit.txt", "w") as file:
-#         file.write(conduit)
-#     with open("conduit.txt", "r") as file2:
-#         result = file2.read()
-#     assert result == "conduit"
-#     # conduit_logout(browser)
-#
+
+
+def test_data_save():
+    browser = setup_env()
+    conduit_registration(browser)
+    conduit = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/a')
+    with open("conduit.txt", "w") as file:
+        file.write(conduit.text)
+    with open("conduit.txt", "r") as file2:
+        result = file2.read()
+    assert result == "conduit"
+    conduit_logout(browser)
+
