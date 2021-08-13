@@ -112,7 +112,8 @@ def test_data_list():
 
 def test_pagination():
     browser = setup_env()
-    conduit_registration(browser)
+    home_page = browser.find_element_by_xpath('//*[@href="#/"]')
+    home_page.click()
     second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
     second_page.click()
     # Ellenőrizzük, hogy a 2. oldalra kattintás után az az oldal válik-e aktívvá
