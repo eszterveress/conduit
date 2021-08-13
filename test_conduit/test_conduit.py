@@ -7,73 +7,73 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from conduit_data import *
-
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
-driver_options = Options()
-driver_options.headless = True
 
 
-def setup():
+
+def setup_env():
+    driver_options = Options()
+    driver_options.headless = True
     browser = webdriver.Chrome(ChromeDriverManager().install(), options=driver_options)
     browser.get("http://localhost:1667")
     browser.maximize_window()
-    time.sleep(1)
-
-
-user_data = ["TesztUser1","TesztUser1@gmail.com","Teszt12123"]
+    return browser
 
 
 # Cookie-k elfogadása
 
 def test_cookie():
-    setup()
+    browser = setup_env()
     cookie_window = browser.find_element_by_xpath('//div[@class="cookie__bar__content"]')
     assert cookie_window.text == "We use cookies to ensure you get the best experience on our website. Learn More..."
     accept_cookie = browser.find_element_by_xpath('//*[@id="cookie-policy-panel"]/div/div[2]/button[2]')
     accept_cookie.click()
+    # button_list = webdriver_wait_xpath(browser, '//button')
+    time.sleep(1)
     button_list = browser.find_elements_by_xpath('//button')
-    assert button_list == []
+    assert len(button_list) == 0
+    browser.quit()
 
-# Regisztráció (felhasználónév nélkül)
-
-
-def test_neg_registration():
-    browser.find_element_by_xpath('//a[@href="#/register"]').click()
-    webdriver_wait_xpath(browser, '//a[@href="#/register"]')
-    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
-    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
-    email.send_keys("Testuser2@gmail.com")
-    password.send_keys("Testuser2948")
-    browser.find_element_by_xpath('//button[1]').click()
-    webdriver_wait_xpath(browser, '//button[1]')
-    alert_message = browser.find_element_by_xpath('/html/body/div[2]/div/div[2]')
-    assert alert_message.text == "Registration unsuccessful."
+# Regisztráció (valid adatokkal)
 
 
-#
-# # Regisztráció (valid adatokkal)
-#
 # def test_registration():
-#
-#     conduit_registration(browser)
-#     name_tag = browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[4]/a')
-#     assert name_tag == "TesztUser1"
-#
-#
-# # Kijelentkezés
-#
-# def test_logout(browser):
-#     conduit_registration(browser)
+#     browser = setup_env()
+#     browser.find_element_by_xpath('//a[@href="#/register"]').click()
+#     username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
+#     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+#     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+#     test_user_data = ["TesztUser14", "TesztUser19@gmail.com", "Teszt12123"]
+#     username.send_keys(test_user_data[0])
+#     email.send_keys(test_user_data[1])
+#     password.send_keys(test_user_data[2])
+#     browser.find_element_by_xpath('//button[1]').click()
+#     element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+#     element.click()
+#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+
+    # name_tag = browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[4]/a')
+    assert name_tag.text == "TesztUser14"
+    browser.quit()
+
+# Kijelentkezés
+
+# def test_logout():
+#     browser = setup_env()
+#     conduit_registration()
 #     browser.refresh()
+#     webdriver_wait_xpath(browser, '//*[@class="article-preview"]')
 #     text_no_article = browser.find_element_by_xpath('//*[@class="article-preview"]')
 #     assert text_no_article.text == "No articles are here... yet."
-#
-# # Bejelentkezés
-#
-# def test_login(browser):
-# #     conduit_registration(browser)
+# #
+# # # Bejelentkezés
+# #
+# def test_login():
+#     browser = setup_env()
+#     conduit_registration()
+#     conduit_logout()
 #     browser.find_element_by_xpath('//a[@href="#/login"]').click()
 #     email_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
 #     email_log.send_keys(user_data[1])
@@ -84,7 +84,7 @@ def test_neg_registration():
 #     name_tag = browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[4]/a')
 #     # print(name_tag.text)
 #     assert name_tag.text == user_data[0]
-# #     conduit_logout(browser)
+#     conduit_logout(browser)
 #
 # # Adatok listázása (az alkalmazásban található tagek listába gyűjtése, majd fájlba írása)
 #
