@@ -113,8 +113,19 @@ def test_data_list():
 
 def test_pagination():
     browser = setup_env()
-    conduit_registration(browser)
-    second_page = browser.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
+    sign_up = webdriver_wait_xpath(browser, '//a[@href="#/register"]')
+    sign_up.click()
+    username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
+    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+    user_data = ["TesztUser222", "TesztUser222@gmail.com", "Teszt12123"]
+    username.send_keys(user_data[0])
+    email.send_keys(user_data[1])
+    password.send_keys(user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+    element.click()
+    second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
     second_page.click()
     # Ellenőrizzük, hogy a 2. oldalra kattintás után az az oldal válik-e aktívvá
     active_page = webdriver_wait_xpath(browser, '//*[@class="page-item active"]')
@@ -125,7 +136,18 @@ def test_pagination():
 
 def test_new_data():
     browser = setup_env()
-    conduit_registration(browser)
+    sign_up = webdriver_wait_xpath(browser, '//a[@href="#/register"]')
+    sign_up.click()
+    username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
+    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+    user_data = ["TesztUser333", "TesztUser333@gmail.com", "Teszt12123"]
+    username.send_keys(user_data[0])
+    email.send_keys(user_data[1])
+    password.send_keys(user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+    element.click()
     settings = browser.find_element_by_xpath('//a[@href="#/editor"]')
     settings.click()
     article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
@@ -141,6 +163,7 @@ def test_new_data():
 
 def test_data_from_file():
     browser = setup_env()
+    conduit_registration(browser)
     article_data = []
     with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
         table_reader = csv.reader(data_file, delimiter=";")
