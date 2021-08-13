@@ -1,0 +1,111 @@
+[ {
+  "uid" : "50a3e6ffd37be19c",
+  "name" : "test_registration",
+  "time" : {
+    "start" : 1628877191956,
+    "stop" : 1628877195211,
+    "duration" : 3255
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a4bd6bb1e5d2364",
+  "name" : "test_new_data",
+  "time" : {
+    "start" : 1628877204939,
+    "stop" : 1628877216828,
+    "duration" : 11889
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "e5d94bf08c7886fe",
+  "name" : "test_login",
+  "time" : {
+    "start" : 1628877198497,
+    "stop" : 1628877200939,
+    "duration" : 2442
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a78a7d97a415eff9",
+  "name" : "test_logout",
+  "time" : {
+    "start" : 1628877195214,
+    "stop" : 1628877198494,
+    "duration" : 3280
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "36e6e5acff1aa9c3",
+  "name" : "test_data_list",
+  "time" : {
+    "start" : 1628877200942,
+    "stop" : 1628877202705,
+    "duration" : 1763
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "21df27833423cb16",
+  "name" : "test_cookie",
+  "time" : {
+    "start" : 1628877187360,
+    "stop" : 1628877191954,
+    "duration" : 4594
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fac5315f2820a264",
+  "name" : "test_data_save",
+  "time" : {
+    "start" : 1628877252618,
+    "stop" : 1628877254366,
+    "duration" : 1748
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "d168b00d3f36c4b7",
+  "name" : "test_pagination",
+  "time" : {
+    "start" : 1628877202708,
+    "stop" : 1628877204686,
+    "duration" : 1978
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "fe930dd341908390",
+  "name" : "test_data_from_file",
+  "time" : {
+    "start" : 1628877216840,
+    "stop" : 1628877228708,
+    "duration" : 11868
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "b4334b906fb6b544",
+  "name" : "test_data_change",
+  "time" : {
+    "start" : 1628877228719,
+    "stop" : 1628877240611,
+    "duration" : 11892
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "3a08e3188cbd0f36",
+  "name" : "test_del_data",
+  "time" : {
+    "start" : 1628877240623,
+    "stop" : 1628877252495,
+    "duration" : 11872
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]
