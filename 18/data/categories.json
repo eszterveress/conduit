@@ -6,13 +6,13 @@
       "name" : "FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'",
       "children" : [ {
         "name" : "test_data_from_file",
-        "uid" : "eb7ed8ba342fd29f",
+        "uid" : "23221ef7d7fcaaba",
         "parentUid" : "fecc6c2495e2ee68f4819d6fdb758567",
         "status" : "broken",
         "time" : {
-          "start" : 1628856652068,
-          "stop" : 1628856658361,
-          "duration" : 6293
+          "start" : 1628857246636,
+          "stop" : 1628857261948,
+          "duration" : 15312
         },
         "flaky" : false,
         "newFailed" : false,

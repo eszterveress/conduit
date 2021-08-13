@@ -4,13 +4,13 @@
     "name" : "test_conduit.test_conduit",
     "children" : [ {
       "name" : "test_data_from_file",
-      "uid" : "eb7ed8ba342fd29f",
+      "uid" : "23221ef7d7fcaaba",
       "parentUid" : "f92ec38412b20630a99541bd50f5697f",
       "status" : "broken",
       "time" : {
-        "start" : 1628856652068,
-        "stop" : 1628856658361,
-        "duration" : 6293
+        "start" : 1628857246636,
+        "stop" : 1628857261948,
+        "duration" : 15312
       },
       "flaky" : false,
       "newFailed" : false,

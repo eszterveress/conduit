@@ -1,0 +1,11 @@
+[ {
+  "uid" : "23221ef7d7fcaaba",
+  "name" : "test_data_from_file",
+  "time" : {
+    "start" : 1628857246636,
+    "stop" : 1628857261948,
+    "duration" : 15312
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]

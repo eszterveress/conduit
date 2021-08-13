@@ -1,12 +1,12 @@
 {
-  "uid" : "eb7ed8ba342fd29f",
+  "uid" : "23221ef7d7fcaaba",
   "name" : "test_data_from_file",
   "fullName" : "test_conduit.test_conduit#test_data_from_file",
   "historyId" : "39a13d77160780a636dc21e0d7f3992a",
   "time" : {
-    "start" : 1628856652068,
-    "stop" : 1628856658361,
-    "duration" : 6293
+    "start" : 1628857246636,
+    "stop" : 1628857261948,
+    "duration" : 15312
   },
   "status" : "broken",
   "statusMessage" : "FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'",
@@ -20,15 +20,15 @@
     "statusTrace" : "def test_data_from_file():\n        browser = setup_env()\n        conduit_registration(browser)\n        article_data = []\n>       with open('adatok_cikkhez.csv', 'r', encoding=\"utf-8\") as data_file:\nE       FileNotFoundError: [Errno 2] No such file or directory: 'adatok_cikkhez.csv'\n\ntest_conduit/test_conduit.py:142: FileNotFoundError",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "274543ff0e5b71d5",
+      "uid" : "83ff0d58257bf02b",
       "name" : "log",
-      "source" : "274543ff0e5b71d5.txt",
+      "source" : "83ff0d58257bf02b.txt",
       "type" : "text/plain",
       "size" : 642
     }, {
-      "uid" : "8617bf5274ddef4c",
+      "uid" : "63e1cd2258dc1105",
       "name" : "stderr",
-      "source" : "8617bf5274ddef4c.txt",
+      "source" : "63e1cd2258dc1105.txt",
       "type" : "text/plain",
       "size" : 435
     } ],
@@ -47,10 +47,10 @@
     "value" : "test_conduit"
   }, {
     "name" : "host",
-    "value" : "fv-az33-581"
+    "value" : "fv-az74-944"
   }, {
     "name" : "thread",
-    "value" : "3810-MainThread"
+    "value" : "3753-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -78,6 +78,6 @@
     } ],
     "tags" : [ ]
   },
-  "source" : "eb7ed8ba342fd29f.json",
+  "source" : "23221ef7d7fcaaba.json",
   "parameterValues" : [ ]
 }
