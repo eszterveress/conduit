@@ -2,13 +2,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def setup_env():
-    driver_options = Options()
-    driver_options.headless = True
-    browser = webdriver.Chrome(ChromeDriverManager().install(), options=driver_options)
-    browser.get("http://localhost:1667")
-    browser.maximize_window()
-    return browser
 
 
 def webdriver_wait_xpath(browser, value):
