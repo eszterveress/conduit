@@ -1,8 +1,8 @@
 # import time
 import csv
-from csv import reader
+
 # import pytest
-# from selenium import webdriver
+from selenium import webdriver
 # from selenium.webdriver.common.by import By
 # from selenium.webdriver.support.wait import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
@@ -160,21 +160,22 @@ def test_data_from_file():
 
 
 # # Meglévő adat módosítás (felhasználó nevének módosítása)
-#
-# def test_data_change(browser):
-#     # conduit_registration(browser)
-#     browser.find_element_by_xpath('//*[@href="#/settings"]').click()
-#     webdriver_wait_xpath(browser,'//*[@href="#/settings"]')
-#     name_field = browser.find_element_by_xpath('//*[@placeholder="Your username"]')
+
+# def test_data_change():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     settings = webdriver_wait_xpath(browser, '//*[@href="#/settings"]')
+#     settings.click()
+#     name_field = webdriver_wait_xpath(browser, '//*[@placeholder="Your username"]')
 #     name_field.clear()
 #     name_field.send_keys("tesztella")
 #     browser.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]').click()
-#     webdriver_wait_xpath(browser, '//button[@class="btn btn-lg btn-primary pull-xs-right"]')
-#     browser.find_element_by_xpath('//*[@class="swal-button swal-button--confirm"]').click()
-#     webdriver_wait_xpath(browser,'//*[@class="swal-button swal-button--confirm"]')
+#     ok_button = webdriver_wait_xpath(browser, '//*[@class="swal-button swal-button--confirm"]')
+#     ok_button.click()
+#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
 #     assert name_tag.text == "tesztella"
-#     # conduit_logout(browser)
-#
+#     conduit_logout(browser)
+
 # # Adat vagy adatok törlése
 #
 # def test_del_data(browser):
