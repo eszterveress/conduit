@@ -1,0 +1,26 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "fv-az74-944",
+    "children" : [ {
+      "name" : "3789-MainThread",
+      "children" : [ {
+        "name" : "test_cookie",
+        "uid" : "8064c52e29c22afd",
+        "parentUid" : "50a1e83686db1428d8bace5ae25e4f75",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628847012617,
+          "stop" : 1628847024704,
+          "duration" : 12087
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "50a1e83686db1428d8bace5ae25e4f75"
+    } ],
+    "uid" : "2e072804a9c24eec34bd707ad820879d"
+  } ],
+  "name" : "timeline"
+}
