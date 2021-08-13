@@ -4,13 +4,13 @@
     "name" : "test_conduit.test_conduit",
     "children" : [ {
       "name" : "test_cookie",
-      "uid" : "9f54b6fbb8edb90f",
+      "uid" : "abd53e604ba3e51c",
       "parentUid" : "f92ec38412b20630a99541bd50f5697f",
       "status" : "broken",
       "time" : {
-        "start" : 1628845327538,
-        "stop" : 1628845354479,
-        "duration" : 26941
+        "start" : 1628845841628,
+        "stop" : 1628845846356,
+        "duration" : 4728
       },
       "flaky" : false,
       "newFailed" : false,

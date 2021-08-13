@@ -9,14 +9,14 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "9f54b6fbb8edb90f",
-      "reportUrl" : "https://eszterveress.github.io/conduit/3//#testresult/9f54b6fbb8edb90f",
+      "uid" : "abd53e604ba3e51c",
+      "reportUrl" : "https://eszterveress.github.io/conduit/4//#testresult/abd53e604ba3e51c",
       "status" : "broken",
       "statusDetails" : "NameError: name 'name_tag' is not defined",
       "time" : {
-        "start" : 1628845327538,
-        "stop" : 1628845354479,
-        "duration" : 26941
+        "start" : 1628845841628,
+        "stop" : 1628845846356,
+        "duration" : 4728
       }
     } ]
   }
