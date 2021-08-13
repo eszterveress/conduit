@@ -28,7 +28,7 @@ def conduit_registration(browser):
     username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
-    test_user_data = ["TesztUser20", "TesztUser30@gmail.com", "Teszt12123"]
+    test_user_data = ["TesztUser20", "TesztUser31@gmail.com", "Teszt12123"]
     username.send_keys(test_user_data[0])
     email.send_keys(test_user_data[1])
     password.send_keys(test_user_data[2])

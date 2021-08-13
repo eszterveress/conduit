@@ -70,38 +70,40 @@ def setup_env():
 #
 # # # Bejelentkezés
 # #
-def test_login():
-    browser = setup_env()
-    conduit_registration(browser)
-    logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
-    logout_button.click()
-    browser.find_element_by_xpath('//a[@href="#/login"]').click()
-    user_data = ["TesztUser20", "TesztUser30@gmail.com", "Teszt12123"]
-    email_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
-    email_log.send_keys(user_data[1])
-    pw_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[2]/input')
-    pw_log.send_keys(user_data[2])
-    browser.find_element_by_xpath('//button[1]').click()
-    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-    assert name_tag.text == user_data[0]
-    conduit_logout(browser)
+# def test_login():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
+#     logout_button.click()
+#     browser.find_element_by_xpath('//a[@href="#/login"]').click()
+#     user_data = ["TesztUser20", "TesztUser30@gmail.com", "Teszt12123"]
+#     email_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
+#     email_log.send_keys(user_data[1])
+#     pw_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[2]/input')
+#     pw_log.send_keys(user_data[2])
+#     browser.find_element_by_xpath('//button[1]').click()
+#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+#     assert name_tag.text == user_data[0]
+#     conduit_logout(browser)
 
 # # Adatok listázása (az alkalmazásban található tagek listába gyűjtése, majd fájlba írása)
-#
-# def test_data_list(browser):
-#     # conduit_registration(browser)
-#     tags = browser.find_elements_by_xpath('//a[@class="tag-pill tag-default"]')
-#     tag_list = []
-#     for i in tags:
-#         tag_list.append(i.text)
-#     with open("lista.txt", "w") as tag_lista:
-#         for j in tag_list:
-#             tag_lista.write(j + "\n")
-#     with open("lista.txt", "r") as lista:
-#         text_content=lista.read().splitlines()
-#     assert tag_list == text_content
-#     # conduit_logout(browser)
-#
+
+
+def test_data_list():
+    browser = setup_env()
+    conduit_registration(browser)
+    tags = browser.find_elements_by_xpath('//a[@class="tag-pill tag-default"]')
+    tag_list = []
+    for i in tags:
+        tag_list.append(i.text)
+    with open("lista.txt", "w") as tag_lista:
+        for j in tag_list:
+            tag_lista.write(j + "\n")
+    with open("lista.txt", "r") as lista:
+        text_content=lista.read().splitlines()
+    assert tag_list == text_content
+    conduit_logout(browser)
+
 # # Több oldalas lista bejárása (lapozás működésének vizsgálata)
 #
 # def test_pagination(browser):
