@@ -59,7 +59,8 @@ def test_registration():
 
 def test_logout():
     browser = setup_env()
-    logout_button = browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[5]/a')
+    conduit_registration(browser)
+    logout_button = webdriver_wait_xpath(browser, '//a[contains(text(),"Log out")]')
     logout_button.click()
     browser.refresh()
     text_no_article = webdriver_wait_xpath(browser, '//*[@class="article-preview"]')
