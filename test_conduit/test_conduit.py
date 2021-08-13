@@ -106,35 +106,32 @@ def setup_env():
 
 # # Több oldalas lista bejárása (lapozás működésének vizsgálata)
 
-def test_pagination():
+# def test_pagination():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     first_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[1]/a')
+#     second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
+#     second_page.click()
+#     # Megnézem a 2. oldalra kattintás után, hogy az válik-e aktívvá
+#     active_page = browser.find_element_by_xpath('//*[@class="page-item active"]')
+#     assert second_page.text == active_page.text
+#     conduit_logout(browser)
+
+# # Új adat bevitel (új bejegyzés létrehozása csak címmel)
+
+def test_new_data():
     browser = setup_env()
     conduit_registration(browser)
-    first_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[1]/a')
-    second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
-    second_page.click()
-    # Megnézem a 2. oldalra kattintás után, hogy az válik-e aktívvá
-    active_page = browser.find_element_by_xpath('//*[@class="page-item active"]')
-    assert second_page.text == active_page.text
+    settings = webdriver_wait_xpath(browser, '//a[@href="#/editor"]')
+    settings.click()
+    article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
+    article_title.send_keys("Tesztelni jó!")
+    update_button = browser.find_element_by_xpath('//button[@class="btn btn-lg pull-xs-right btn-primary"]')
+    update_button.click()
+    article_title_text = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
+    assert article_title_text.text == "Tesztelni jó!"
     conduit_logout(browser)
 
-# # Új adat bevitel (a felhasználó bemutatkozásának kitöltése)
-#
-# def test_new_data(browser):
-#     #conduit_registration(browser)
-#     browser.find_element_by_xpath('//a[@href="#/settings"]').click()
-#     webdriver_wait_xpath(browser,'//a[@href="#/settings"]')
-#     bio_field = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
-#     bio_field.send_keys("Tesztelni jó!")
-#     browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/button').click()
-#     webdriver_wait_xpath(browser,'//*[@id="app"]/div/div/div/div/form/fieldset/button')
-#     browser.find_element_by_xpath('/html/body/div[2]/div/div[3]/div/button').click()
-#     webdriver_wait_xpath(browser, '/html/body/div[2]/div/div[3]/div/button')
-#     browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[4]/a').click()
-#     webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-#     user_text = browser.find_element_by_xpath('//*[@id="app"]/div/div[1]/div/div/div/p')
-#     assert user_text.text == "Tesztelni jó!"
-#     # conduit_logout(browser)
-#
 # # Ismételt és sorozatos adatbevitel adatforrásból (új cikk létrehozása csv fájl segítségével)
 #
 # def test_data_from_file(browser):
