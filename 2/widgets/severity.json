@@ -1,0 +1,31 @@
+[ {
+  "uid" : "d8912f5cd86d5fcb",
+  "name" : "test_cookie",
+  "time" : {
+    "start" : 1628837514608,
+    "stop" : 1628837517493,
+    "duration" : 2885
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "3866df70d6bfddbb",
+  "name" : "test_setup",
+  "time" : {
+    "start" : 1628837511624,
+    "stop" : 1628837511624,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "92ae0cce9b257a04",
+  "name" : "test_neg_registration",
+  "time" : {
+    "start" : 1628837520333,
+    "stop" : 1628837520333,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]

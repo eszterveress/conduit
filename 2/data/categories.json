@@ -1,0 +1,52 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "NameError: name 'browser' is not defined",
+      "children" : [ {
+        "name" : "test_setup",
+        "uid" : "3866df70d6bfddbb",
+        "parentUid" : "87a3e6e1b6b9b20d0eb5b1f0d1c3dd77",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628837511624,
+          "stop" : 1628837511624,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_cookie",
+        "uid" : "d8912f5cd86d5fcb",
+        "parentUid" : "87a3e6e1b6b9b20d0eb5b1f0d1c3dd77",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628837514608,
+          "stop" : 1628837517493,
+          "duration" : 2885
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_neg_registration",
+        "uid" : "92ae0cce9b257a04",
+        "parentUid" : "87a3e6e1b6b9b20d0eb5b1f0d1c3dd77",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628837520333,
+          "stop" : 1628837520333,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "87a3e6e1b6b9b20d0eb5b1f0d1c3dd77"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
