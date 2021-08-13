@@ -1,11 +1,11 @@
-import time
-import csv
-from csv import reader
-import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+# import time
+# import CSV
+# from csv import reader
+# import pytest
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.wait import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
 from conduit_data import *
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
@@ -24,47 +24,50 @@ def setup_env():
 
 # Cookie-k elfogadása:
 
-def test_cookie():
-    browser = setup_env()
-    cookie_window = browser.find_element_by_xpath('//div[@class="cookie__bar__content"]')
-    assert cookie_window.text == "We use cookies to ensure you get the best experience on our website. Learn More..."
-    accept_cookie = browser.find_element_by_xpath('//*[@id="cookie-policy-panel"]/div/div[2]/button[2]')
-    accept_cookie.click()
-    time.sleep(1)
-    button_list = browser.find_elements_by_xpath('//button')
-    assert len(button_list) == 0
-    browser.quit()
+# def test_cookie():
+#     browser = setup_env()
+#     cookie_window = browser.find_element_by_xpath('//div[@class="cookie__bar__content"]')
+#     assert cookie_window.text == "We use cookies to ensure you get the best experience on our website. Learn More..."
+#     accept_cookie = browser.find_element_by_xpath('//*[@id="cookie-policy-panel"]/div/div[2]/button[2]')
+#     accept_cookie.click()
+#     time.sleep(1)
+#     button_list = browser.find_elements_by_xpath('//button')
+#     assert len(button_list) == 0
+#     browser.quit()
 
 # Regisztráció (valid adatokkal)
 
 
-def test_registration():
-    browser = setup_env()
-    browser.find_element_by_xpath('//a[@href="#/register"]').click()
-    username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
-    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
-    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
-    test_user_data = ["TesztUser14", "TesztUser19@gmail.com", "Teszt12123"]
-    username.send_keys(test_user_data[0])
-    email.send_keys(test_user_data[1])
-    password.send_keys(test_user_data[2])
-    browser.find_element_by_xpath('//button[1]').click()
-    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
-    element.click()
-    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-    assert name_tag.text == "TesztUser14"
-    browser.quit()
+# def test_registration():
+#     browser = setup_env()
+#     browser.find_element_by_xpath('//a[@href="#/register"]').click()
+#     username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
+#     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+#     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+#     test_user_data = ["TesztUser14", "TesztUser19@gmail.com", "Teszt12123"]
+#     username.send_keys(test_user_data[0])
+#     email.send_keys(test_user_data[1])
+#     password.send_keys(test_user_data[2])
+#     browser.find_element_by_xpath('//button[1]').click()
+#     element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+#     element.click()
+#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+#     assert name_tag.text == "TesztUser14"
+#     browser.quit()
 
 # Kijelentkezés
 
-# def test_logout():
-#     browser = setup_env()
-#     conduit_registration()
-#     browser.refresh()
-#     webdriver_wait_xpath(browser, '//*[@class="article-preview"]')
-#     text_no_article = browser.find_element_by_xpath('//*[@class="article-preview"]')
-#     assert text_no_article.text == "No articles are here... yet."
-# #
+
+def test_logout():
+    browser = setup_env()
+    conduit_registration(browser)
+    logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
+    logout_button.click()
+    browser.refresh()
+    text_no_article = browser.find_element_by_xpath('//*[@class="article-preview"]')
+    assert text_no_article.text == "No articles are here... yet."
+    browser.quit()
+#
 # # # Bejelentkezés
 # #
 # def test_login():
