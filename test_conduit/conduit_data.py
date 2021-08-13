@@ -3,10 +3,13 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+#függvények
+
 
 def webdriver_wait_xpath(browser, value):
     element = WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, value)))
     return element
+
 
 def conduit_registration(browser):
     browser.find_element_by_xpath('//a[@href="#/register"]').click()
@@ -21,7 +24,6 @@ def conduit_registration(browser):
     browser.find_element_by_xpath('//button[1]').click()
     webdriver_wait_xpath(browser, '//*[@class="swal-button swal-button--confirm"]')
     browser.find_element_by_xpath('//*[@class="swal-button swal-button--confirm"]').click()
-
 
 
 def conduit_logout():

@@ -22,7 +22,7 @@ def setup_env():
     return browser
 
 
-# Cookie-k elfogadása
+# Cookie-k elfogadása:
 
 def test_cookie():
     browser = setup_env()
