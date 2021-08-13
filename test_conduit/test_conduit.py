@@ -51,6 +51,7 @@ def test_registration():
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     # Ellenőrizzük, hogy a regisztráció végeztével megjelenik a felhasználónév, azaz a felhasználó belépett
     assert name_tag.text == user_data[0]
+    conduit_logout(browser)
 
 
 
