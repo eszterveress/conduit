@@ -122,7 +122,7 @@ def test_pagination():
     pw_log.send_keys(user_data[2])
     home_page = browser.find_element_by_xpath('//*[@href="#/"]')
     home_page.click()
-    second_page = browser.find_element_by_xpath('//a[normalize-space()="Your Feed"]')
+    second_page = browser.find_element_by_xpath('//a[normalize-space()="2"]')
     second_page.click()
     # Ellenőrizzük, hogy a 2. oldalra kattintás után az az oldal válik-e aktívvá
     active_page = webdriver_wait_xpath(browser, '//*[@class="page-item active"]')
