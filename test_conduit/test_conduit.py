@@ -41,7 +41,7 @@ def test_registration():
     username = webdriver_wait_xpath(browser, '//*[@placeholder="Username"]')
     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
-    user_data = ["TesztUser111", "TesztUser111@gmail.com", "Teszt12123"]
+    user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
     username.send_keys(user_data[0])
     email.send_keys(user_data[1])
     password.send_keys(user_data[2])
@@ -68,16 +68,13 @@ def test_logout():
     # Ellenőrizzük, hogy kilépés után a kezdőoldalon nem látszanak a bejegyzések
     # (a bejegyzéseket csak a bejelentkezett felhasználó láthatja)
     assert text_no_article.text == "No articles are here... yet."
-    browser.quit()
+
 
 # # # Bejelentkezés
 
 
 def test_login():
     browser = setup_env()
-    conduit_registration(browser)
-    logout_button = webdriver_wait_xpath(browser, '//a[contains(text(),"Log out")]')
-    logout_button.click()
     sign_in = webdriver_wait_xpath(browser, '//a[@href="#/login"]')
     sign_in.click()
     user_data = ["TesztUser99", "TesztUser99@gmail.com", "Teszt12123"]
@@ -88,7 +85,7 @@ def test_login():
     browser.find_element_by_xpath('//button[1]').click()
     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     assert name_tag.text == user_data[0]
-    conduit_logout(browser)
+
 
 
 
