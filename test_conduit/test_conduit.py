@@ -1,6 +1,6 @@
 # import time
-# import CSV
-# from csv import reader
+import csv
+from csv import reader
 # import pytest
 # from selenium import webdriver
 # from selenium.webdriver.common.by import By
@@ -119,44 +119,46 @@ def setup_env():
 
 # # Új adat bevitel (új bejegyzés létrehozása csak címmel)
 
-def test_new_data():
-    browser = setup_env()
-    conduit_registration(browser)
-    settings = webdriver_wait_xpath(browser, '//a[@href="#/editor"]')
-    settings.click()
-    article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
-    article_title.send_keys("Tesztelni jó!")
-    update_button = browser.find_element_by_xpath('//button[@class="btn btn-lg pull-xs-right btn-primary"]')
-    update_button.click()
-    article_title_text = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
-    assert article_title_text.text == "Tesztelni jó!"
-    conduit_logout(browser)
+# def test_new_data():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     settings = webdriver_wait_xpath(browser, '//a[@href="#/editor"]')
+#     settings.click()
+#     article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
+#     article_title.send_keys("Tesztelni jó!")
+#     update_button = browser.find_element_by_xpath('//button[@class="btn btn-lg pull-xs-right btn-primary"]')
+#     update_button.click()
+#     article_title_text = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
+#     assert article_title_text.text == "Tesztelni jó!"
+#     conduit_logout(browser)
 
 # # Ismételt és sorozatos adatbevitel adatforrásból (új cikk létrehozása csv fájl segítségével)
-#
-# def test_data_from_file(browser):
-#     # conduit_registration(browser)
-#     article_data = []
-#     with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
-#         table_reader = csv.reader(data_file, delimiter=";")
-#         next(table_reader)
-#         for row in table_reader:
-#             article_data.append(row)
-#     browser.find_element_by_xpath('//*[@href="#/editor"]').click()
-#     webdriver_wait_xpath(browser,'//*[@href="#/editor"]')
-#     article_title = browser.find_element_by_xpath('//*[@placeholder="Article Title"]')
-#     article_about = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[2]/input')
-#     article_text = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
-#     article_title.send_keys(article_data[0])
-#     article_about.send_keys(article_data[1])
-#     article_text.send_keys(article_data[2])
-#     browser.find_element_by_xpath('//button[@type="submit"]').click()
-#     webdriver_wait_xpath(browser,'//button[@type="submit"]')
-#     article_title_page = browser.find_element_by_xpath('//*[@id="app"]/div/div[1]/div/h1')
-#     assert article_title_page.text == "Uj bejegyzes"
-#     # conduit_logout(browser)
-#
-#
+
+
+def test_data_from_file():
+    browser = setup_env()
+    conduit_registration(browser)
+    article_data = []
+    with open('adatok_cikkhez.csv', 'r', encoding="utf-8") as data_file:
+        table_reader = csv.reader(data_file, delimiter=";")
+        next(table_reader)
+        for row in table_reader:
+            article_data.append(row)
+    new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
+    new_article.click()
+    article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
+    article_about = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[2]/input')
+    article_text = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
+    article_title.send_keys(article_data[0])
+    article_about.send_keys(article_data[1])
+    article_text.send_keys(article_data[2])
+    submit_button = webdriver_wait_xpath(browser,'//button[@type="submit"]')
+    submit_button.click()
+    article_title_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[1]/div/h1')
+    assert article_title_page.text == "Uj bejegyzes"
+    conduit_logout(browser)
+
+
 # # Meglévő adat módosítás (felhasználó nevének módosítása)
 #
 # def test_data_change(browser):
