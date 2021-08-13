@@ -105,7 +105,7 @@ def test_data_list():
         text_content=lista.read().splitlines()
     # Ellenőrizzük, hogy az oldalról kigyűjtött és a fájlba írt tagek megegyeznek
     assert tag_list == text_content
-    conduit_logout(browser)
+
 
 
 # # Több oldalas lista bejárása (lapozás működésének vizsgálata)
@@ -113,7 +113,6 @@ def test_data_list():
 
 def test_pagination():
     browser = setup_env()
-    conduit_registration(browser)
     home_page = browser.find_element_by_xpath('//*[@href="#/"]')
     home_page.click()
     second_page = webdriver_wait_xpath(browser, '//*[@id="app"]/div/div[2]/div/div[1]/div[2]/div/div/nav/ul/li[2]/a')
