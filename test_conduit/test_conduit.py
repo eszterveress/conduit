@@ -161,40 +161,46 @@ def setup_env():
 
 # # Meglévő adat módosítás (felhasználó nevének módosítása)
 
-def test_data_change():
-    browser = setup_env()
-    conduit_registration(browser)
-    settings = webdriver_wait_xpath(browser, '//*[@href="#/settings"]')
-    settings.click()
-    name_field = webdriver_wait_xpath(browser, '//*[@placeholder="Your username"]')
-    name_field.clear()
-    name_field.send_keys("tesztella")
-    browser.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]').click()
-    ok_button = webdriver_wait_xpath(browser, '//*[@class="swal-button swal-button--confirm"]')
-    ok_button.click()
-    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-    assert name_tag.text == "tesztella"
-    conduit_logout(browser)
+# def test_data_change():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     settings = webdriver_wait_xpath(browser, '//*[@href="#/settings"]')
+#     settings.click()
+#     name_field = webdriver_wait_xpath(browser, '//*[@placeholder="Your username"]')
+#     name_field.clear()
+#     name_field.send_keys("tesztella")
+#     browser.find_element_by_xpath('//button[@class="btn btn-lg btn-primary pull-xs-right"]').click()
+#     ok_button = webdriver_wait_xpath(browser, '//*[@class="swal-button swal-button--confirm"]')
+#     ok_button.click()
+#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+#     assert name_tag.text == "tesztella"
+#     conduit_logout(browser)
 
 # # Adat vagy adatok törlése
-#
-# def test_del_data(browser):
-#     # conduit_registration(browser)
-#     browser.find_element_by_xpath('//*[@href="#/editor"]').click()
-#     webdriver_wait_xpath(browser,'//*[@href="#/editor"]')
-#     article_title.send_keys(user_data[0])
-#     article_about.send_keys(user_data[1])
-#     article_text.send_keys(user_data[0])
-#     browser.find_element_by_xpath('//button[@type="submit"]').click()
-#     webdriver_wait_xpath(browser,'//button[@type="submit"]')
-#     browser.find_element_by_xpath('//button[@class="btn btn-outline-danger btn-sm"]').click()
-#     webdriver_wait_xpath(browser,'//button[@class="btn btn-outline-danger btn-sm"]')
-#     browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[4]/a').click()
-#     webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-#     article_list = browser.find_elements_by_xpath('//*[@class="preview-link"]')
-#     assert len(article_list) == 1
-#     # conduit_logout(browser)
-#
+
+
+def test_del_data():
+    browser = setup_env()
+    conduit_registration(browser)
+    new_article = webdriver_wait_xpath(browser, '//*[@href="#/editor"]')
+    new_article.click()
+    user_data = ["TesztUser20", "TesztUser56@gmail.com", "Teszt1217879"]
+    article_title = webdriver_wait_xpath(browser, '//*[@placeholder="Article Title"]')
+    article_about = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[2]/input')
+    article_text = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset/fieldset[3]/textarea')
+    article_title.send_keys(user_data[0])
+    article_about.send_keys(user_data[1])
+    article_text.send_keys(user_data[2])
+    submit_button = webdriver_wait_xpath(browser, '//button[@type="submit"]')
+    submit_button.click()
+    delete_button = webdriver_wait_xpath(browser, '//button[@class="btn btn-outline-danger btn-sm"]')
+    delete_button.click()
+    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+    name_tag.click()
+    article_list = browser.find_elements_by_xpath('//*[@class="author router-link-exact-active router-link-active"]')
+    assert len(article_list) == 0
+    conduit_logout(browser)
+
 # # Adatok lementése felületről (conduit címke fájlba mentése)
 #
 # def test_data_save(browser):
