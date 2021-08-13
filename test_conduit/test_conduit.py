@@ -58,34 +58,34 @@ def setup_env():
 # Kijelentkezés
 
 
-def test_logout():
+# def test_logout():
+#     browser = setup_env()
+#     conduit_registration(browser)
+#     logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
+#     logout_button.click()
+#     browser.refresh()
+#     text_no_article = browser.find_element_by_xpath('//*[@class="article-preview"]')
+#     assert text_no_article.text == "No articles are here... yet."
+#     browser.quit()
+#
+# # # Bejelentkezés
+# #
+def test_login():
     browser = setup_env()
     conduit_registration(browser)
     logout_button = browser.find_element_by_xpath('//*[@class="nav-link" and contains(text(),"Log out")]')
     logout_button.click()
-    browser.refresh()
-    text_no_article = browser.find_element_by_xpath('//*[@class="article-preview"]')
-    assert text_no_article.text == "No articles are here... yet."
-    browser.quit()
-#
-# # # Bejelentkezés
-# #
-# def test_login():
-#     browser = setup_env()
-#     conduit_registration()
-#     conduit_logout()
-#     browser.find_element_by_xpath('//a[@href="#/login"]').click()
-#     email_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
-#     email_log.send_keys(user_data[1])
-#     pw_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[2]/input')
-#     pw_log.send_keys(user_data[2])
-#     browser.find_element_by_xpath('//button[1]').click()
-#     webdriver_wait_xpath(browser,'//button[1]')
-#     name_tag = browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[4]/a')
-#     # print(name_tag.text)
-#     assert name_tag.text == user_data[0]
-#     conduit_logout(browser)
-#
+    browser.find_element_by_xpath('//a[@href="#/login"]').click()
+    user_data = ["TesztUser20", "TesztUser30@gmail.com", "Teszt12123"]
+    email_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[1]/input')
+    email_log.send_keys(user_data[1])
+    pw_log = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div/form/fieldset[2]/input')
+    pw_log.send_keys(user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
+    assert name_tag.text == user_data[0]
+    conduit_logout(browser)
+
 # # Adatok listázása (az alkalmazásban található tagek listába gyűjtése, majd fájlba írása)
 #
 # def test_data_list(browser):
