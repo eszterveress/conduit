@@ -30,7 +30,6 @@ def test_cookie():
     assert cookie_window.text == "We use cookies to ensure you get the best experience on our website. Learn More..."
     accept_cookie = browser.find_element_by_xpath('//*[@id="cookie-policy-panel"]/div/div[2]/button[2]')
     accept_cookie.click()
-    # button_list = webdriver_wait_xpath(browser, '//button')
     time.sleep(1)
     button_list = browser.find_elements_by_xpath('//button')
     assert len(button_list) == 0
@@ -39,22 +38,20 @@ def test_cookie():
 # Regisztráció (valid adatokkal)
 
 
-# def test_registration():
-#     browser = setup_env()
-#     browser.find_element_by_xpath('//a[@href="#/register"]').click()
-#     username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
-#     email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
-#     password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
-#     test_user_data = ["TesztUser14", "TesztUser19@gmail.com", "Teszt12123"]
-#     username.send_keys(test_user_data[0])
-#     email.send_keys(test_user_data[1])
-#     password.send_keys(test_user_data[2])
-#     browser.find_element_by_xpath('//button[1]').click()
-#     element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
-#     element.click()
-#     name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
-
-    # name_tag = browser.find_element_by_xpath('//*[@id="app"]/nav/div/ul/li[4]/a')
+def test_registration():
+    browser = setup_env()
+    browser.find_element_by_xpath('//a[@href="#/register"]').click()
+    username = browser.find_element_by_xpath('//*[@placeholder="Username"]')
+    email = browser.find_element_by_xpath('//*[@placeholder="Email"]')
+    password = browser.find_element_by_xpath('//*[@placeholder="Password"]')
+    test_user_data = ["TesztUser14", "TesztUser19@gmail.com", "Teszt12123"]
+    username.send_keys(test_user_data[0])
+    email.send_keys(test_user_data[1])
+    password.send_keys(test_user_data[2])
+    browser.find_element_by_xpath('//button[1]').click()
+    element = webdriver_wait_xpath(browser, '//button[@class="swal-button swal-button--confirm"]')
+    element.click()
+    name_tag = webdriver_wait_xpath(browser, '//*[@id="app"]/nav/div/ul/li[4]/a')
     assert name_tag.text == "TesztUser14"
     browser.quit()
 

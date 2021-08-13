@@ -1,3 +1,4 @@
+import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -24,6 +25,7 @@ def conduit_registration(browser):
     browser.find_element_by_xpath('//button[1]').click()
     webdriver_wait_xpath(browser, '//*[@class="swal-button swal-button--confirm"]')
     browser.find_element_by_xpath('//*[@class="swal-button swal-button--confirm"]').click()
+    time.sleep(1)
 
 
 def conduit_logout():
