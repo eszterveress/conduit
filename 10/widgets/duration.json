@@ -1,0 +1,11 @@
+[ {
+  "uid" : "da5204de4e197c9",
+  "name" : "test_cookie",
+  "time" : {
+    "start" : 1628847632491,
+    "stop" : 1628847642647,
+    "duration" : 10156
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]
