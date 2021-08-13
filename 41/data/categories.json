@@ -1,0 +1,95 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.TimeoutException: Message:",
+      "children" : [ {
+        "name" : "test_pagination",
+        "uid" : "2bcb8e3a7c1195aa",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628872589032,
+          "stop" : 1628872600906,
+          "duration" : 11874
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_new_data",
+        "uid" : "53004d6322f74c9c",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628872601125,
+          "stop" : 1628872612996,
+          "duration" : 11871
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_data_from_file",
+        "uid" : "976a4e55a87cea97",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628872613007,
+          "stop" : 1628872624902,
+          "duration" : 11895
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_data_change",
+        "uid" : "4e22fcd5eb8c10a6",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628872624914,
+          "stop" : 1628872636796,
+          "duration" : 11882
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_del_data",
+        "uid" : "b4ab0a7a486edecc",
+        "parentUid" : "31bb78a6a95ede3f78b260ed048910d8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628872636913,
+          "stop" : 1628872648766,
+          "duration" : 11853
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "31bb78a6a95ede3f78b260ed048910d8"
+    }, {
+      "name" : "selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@class=\"nav-link\" and contains(text(),\"Log out\")]\"}\n  (Session info: headless chrome=92.0.4515.131)",
+      "children" : [ {
+        "name" : "test_data_save",
+        "uid" : "3502dd12e432d449",
+        "parentUid" : "9fb818fb48d9716e9379d6f0bcd4b6bf",
+        "status" : "broken",
+        "time" : {
+          "start" : 1628872648777,
+          "stop" : 1628872650487,
+          "duration" : 1710
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "9fb818fb48d9716e9379d6f0bcd4b6bf"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
