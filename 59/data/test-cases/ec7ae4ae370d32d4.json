@@ -1,0 +1,75 @@
+{
+  "uid" : "ec7ae4ae370d32d4",
+  "name" : "test_logout",
+  "fullName" : "test_conduit.test_conduit#test_logout",
+  "historyId" : "ac60a687a90e44b356a69009bad859dd",
+  "time" : {
+    "start" : 1629658343568,
+    "stop" : 1629658347473,
+    "duration" : 3905
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "5339c64aeb3436c3",
+      "name" : "log",
+      "source" : "5339c64aeb3436c3.txt",
+      "type" : "text/plain",
+      "size" : 344
+    }, {
+      "uid" : "4cb35e4451d9d79a",
+      "name" : "stderr",
+      "source" : "4cb35e4451d9d79a.txt",
+      "type" : "text/plain",
+      "size" : 215
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test_conduit"
+  }, {
+    "name" : "suite",
+    "value" : "test_conduit"
+  }, {
+    "name" : "host",
+    "value" : "fv-az83-618"
+  }, {
+    "name" : "thread",
+    "value" : "3711-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_conduit.test_conduit"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ec7ae4ae370d32d4.json",
+  "parameterValues" : [ ]
+}
