@@ -1,0 +1,26 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <button class=\"swal-button swal-button--confirm\">...</button> is not clickable at point (517, 366). Other element would receive the click: <div class=\"swal-footer\">...</div>\n  (Session info: headless chrome=92.0.4515.131)",
+      "children" : [ {
+        "name" : "test_data_change",
+        "uid" : "76c6a9d8fc7157d4",
+        "parentUid" : "927e20ca53137382d20ee72da98864c8",
+        "status" : "broken",
+        "time" : {
+          "start" : 1629665411122,
+          "stop" : 1629665416519,
+          "duration" : 5397
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "927e20ca53137382d20ee72da98864c8"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
